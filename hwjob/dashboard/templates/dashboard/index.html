@@ -1,16 +1,20 @@
 {% extends 'dashboard/base.html' %}
+{% load django_vite %}
 
 {#
-    TODO à compléter : c'est le dashboard.
-
-    Recherche de client, courbe de consommation, diagnostic. Récupérez les données
-    via l'API (/api/search-clients et /api/client/<id>) ou via
-    dashboard.selectors dans une vue — voir le README.
+    Dashboard page. Django renders this shell; React mounts into #app and
+    talks to /api/search-clients and /api/client/<id>.
 #}
 
+{% block css %}
+    {% vite_react_refresh %}
+    {% vite_hmr_client %}
+{% endblock css %}
+
 {% block body %}
-    <main>
-        <h1>Diagnostic</h1>
-        <p>Cette page est volontairement vide : c'est celle que vous allez construire.</p>
-    </main>
+    <div id="app"></div>
 {% endblock body %}
+
+{% block script %}
+    {% vite_asset 'src/main.tsx' %}
+{% endblock script %}
