@@ -5,22 +5,9 @@ from django.http import (
     HttpResponseNotFound,
     JsonResponse,
 )
-from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
 from dashboard.selectors import InvalidPageRequested, client_details, search_clients
-
-
-@require_GET
-def root_view(request: HttpRequest) -> HttpResponse:
-    """
-    The empty page the dashboard is meant to replace. Yours to rebuild.
-    """
-    return render(
-        request,
-        "dashboard/index.html",
-        {"meta": {"title": "Diagnostic", "description": "Diagnostic en un clic"}},
-    )
 
 
 @require_GET

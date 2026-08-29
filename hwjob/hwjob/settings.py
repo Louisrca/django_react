@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from pathlib import Path
 
 import django_stubs_ext
 
@@ -21,10 +20,6 @@ django_stubs_ext.monkeypatch()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# The Vite project lives next to the Django project, at the repo root.
-FRONTEND_DIR = Path(BASE_DIR).parent / "frontend"
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -41,14 +36,13 @@ ALLOWED_HOSTS: list[str] = []
 # Application definition
 
 INSTALLED_APPS = [
+    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_vite",
     "dashboard.apps.DashboardConfig",
-    "dashboard.apps.DashboardAdminConfig",
 ]
 
 MIDDLEWARE = [
@@ -130,21 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = Path(BASE_DIR) / "staticfiles"
-
-# Serve the Vite build output (dist/) as static files in production.
-STATICFILES_DIRS = [FRONTEND_DIR / "dist"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-# django-vite
-# https://github.com/MrBin99/django-vite
-#  - dev_mode on  -> tags point at the Vite dev server (npm run dev, port 5173)
-#  - dev_mode off -> tags are resolved from the built manifest below
-DJANGO_VITE = {
-    "default": {
-        "dev_mode": DEBUG,
-        "dev_server_port": 5173,
-        "manifest_path": FRONTEND_DIR / "dist" / ".vite" / "manifest.json",
-    }
-}
