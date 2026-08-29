@@ -1,11 +1,12 @@
+import { useState } from "react";
+import { SearchClient } from "./components/SearchClient";
+
 export default function App() {
+  const [clientId, setClientId] = useState(0);
+
   return (
     <main className="mx-auto max-w-2xl p-8">
-      <h1 className="text-2xl font-bold text-slate-900">Diagnostic</h1>
-      <p className="mt-2 text-slate-600">
-        React + Vite + Tailwind sont branchés. Cette racine remplacera le
-        dashboard.
-      </p>
+      <SearchClient onSelect={setClientId} />
     </main>
   );
 }
