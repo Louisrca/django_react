@@ -33,6 +33,7 @@ export const SearchClient = ({ onSelect }: SearchClientProps) => {
         label="Rechercher un client"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        placeholder="Rechercher..."
       />
 
       {hasQuery && isPending && <StatusText>Recherche…</StatusText>}
