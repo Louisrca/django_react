@@ -53,6 +53,9 @@
   --color-primary-hover: var(--color-slate-700);
   --color-primary-foreground: var(--color-white);
 
+  /* Brand accent — headings, nav hover */
+  --color-brand: #039de0;
+
   /* Destructive — standalone error / validation text */
   --color-destructive: var(--color-red-600);
 

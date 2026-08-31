@@ -1,37 +1,26 @@
-import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/Button/Button";
-import { Typography } from "@/components/ui/Typography/Typography";
+import { Link } from "react-router";
 
 export const Navigation = () => {
-  const navigate = useNavigate();
-
   return (
     <nav
       className="flex flex-row flex-wrap items-center justify-between gap-x-2 gap-y-1 border-b border-border bg-background p-4"
       aria-label="Navigation de page"
     >
-      <button type="button" onClick={() => navigate("/")}>
-        <Typography variant="h4" as="span">
-          DiagConso
-        </Typography>
-      </button>
+      <Link
+        to="/"
+        aria-label="Accueil"
+        className="shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
+        <img src="/hello-watt.svg" alt="Hello Watt" width={168} height={32} />
+      </Link>
 
       <div className="flex flex-row gap-2 sm:gap-4">
-        <Button
-          variant="navigation"
-          onClick={() => {
-            navigate("/admin/clients");
-          }}
-        >
-          Admin
+        <Button asChild variant="navigation">
+          <Link to="/admin/clients">Admin</Link>
         </Button>
-        <Button
-          variant="navigation"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Conseiller
+        <Button asChild variant="navigation">
+          <Link to="/">Conseiller</Link>
         </Button>
       </div>
     </nav>

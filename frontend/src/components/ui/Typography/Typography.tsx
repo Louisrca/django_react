@@ -5,11 +5,11 @@ import { cn } from "@/utils/cn";
 const typographyVariants = cva("", {
   variants: {
     variant: {
-      display: "text-5xl font-extrabold tracking-tight text-foreground",
-      h1: "text-4xl font-bold tracking-tight text-foreground",
-      h2: "text-3xl font-semibold tracking-tight text-foreground",
-      h3: "text-2xl font-semibold text-foreground",
-      h4: "text-lg font-semibold text-foreground",
+      display: "text-5xl font-extrabold tracking-tight text-brand",
+      h1: "text-4xl font-bold tracking-tight text-brand",
+      h2: "text-3xl font-semibold tracking-tight text-brand",
+      h3: "text-2xl font-semibold text-brand",
+      h4: "text-lg font-semibold text-brand",
       lead: "text-lg font-normal text-body-muted",
       body: "text-base font-normal text-body",
       "body-md": "text-base font-medium text-body-muted",

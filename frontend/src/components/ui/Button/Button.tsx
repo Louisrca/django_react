@@ -15,7 +15,9 @@ const buttonVariants = cva(
         secondary:
           "border border-input bg-background text-foreground hover:bg-accent",
         neutral: "bg-background text-foreground hover:bg-accent",
-        navigation: "bg-background text-foreground hover:underline",
+        "full-neutral": "bg-background text-foreground hover:bg-accent",
+        navigation:
+          "bg-background text-foreground hover:text-brand hover:underline",
       },
       size: {
         sm: "h-8 px-3 text-sm",
