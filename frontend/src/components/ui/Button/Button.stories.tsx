@@ -12,13 +12,21 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
+
 export const Secondary: Story = {
   args: {
     variant: "secondary",
   },
 };
+
 export const Neutral: Story = {
   args: {
     variant: "neutral",
+  },
+};
+
+export const Navigation: Story = {
+  args: {
+    variant: "navigation",
   },
 };

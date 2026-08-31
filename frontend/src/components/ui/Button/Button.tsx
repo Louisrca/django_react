@@ -1,7 +1,7 @@
 import { Slot } from "radix-ui";
 import { type ButtonHTMLAttributes, type ElementType, type Ref } from "react";
 
-type Variant = "primary" | "secondary" | "neutral";
+type Variant = "primary" | "secondary" | "neutral" | "navigation";
 type Size = "sm" | "md" | "lg";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -23,6 +23,7 @@ const variants: Record<Variant, string> = {
   secondary:
     "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
   neutral: "bg-white text-slate-900 hover:bg-slate-50",
+  navigation: "bg-white text-slate-900 hover:underline",
 };
 
 const sizes: Record<Size, string> = {
