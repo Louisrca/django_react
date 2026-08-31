@@ -1,19 +1,20 @@
+import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps } from "react";
 import { cn } from "../../../utils/cn";
 
-type StatusTextProps = ComponentProps<"p"> & {
-  tone?: "muted" | "error";
-};
+const statusTextVariants = cva("mt-2 text-sm", {
+  variants: {
+    tone: {
+      muted: "text-muted-foreground",
+      error: "text-destructive",
+    },
+  },
+  defaultVariants: { tone: "muted" },
+});
 
-const tones = {
-  muted: "text-muted-foreground",
-  error: "text-destructive",
-} as const;
+type StatusTextProps = ComponentProps<"p"> &
+  VariantProps<typeof statusTextVariants>;
 
-export const StatusText = ({
-  tone = "muted",
-  className,
-  ...props
-}: StatusTextProps) => (
-  <p className={cn("mt-2 text-sm", tones[tone], className)} {...props} />
+export const StatusText = ({ tone, className, ...props }: StatusTextProps) => (
+  <p className={cn(statusTextVariants({ tone }), className)} {...props} />
 );

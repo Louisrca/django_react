@@ -1,22 +1,35 @@
+import { cva, type VariantProps } from "class-variance-authority";
 import type { ComponentProps, ElementType } from "react";
 import { cn } from "../../../utils/cn";
 
-export type TypographyVariant =
-  | "display"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "lead"
-  | "body"
-  | "body-md"
-  | "body-sm"
-  | "small"
-  | "overline"
-  | "caption"
-  | "label"
-  | "code"
-  | "blockquote";
+const typographyVariants = cva("", {
+  variants: {
+    variant: {
+      display: "text-5xl font-extrabold tracking-tight text-foreground",
+      h1: "text-4xl font-bold tracking-tight text-foreground",
+      h2: "text-3xl font-semibold tracking-tight text-foreground",
+      h3: "text-2xl font-semibold text-foreground",
+      h4: "text-lg font-semibold text-foreground",
+      lead: "text-lg font-normal text-body-muted",
+      body: "text-base font-normal text-body",
+      "body-md": "text-base font-medium text-body-muted",
+      "body-sm": "text-sm font-normal text-body-muted",
+      small: "text-xs font-normal text-muted-foreground",
+      overline:
+        "text-xs font-semibold uppercase tracking-widest text-muted-foreground",
+      caption: "text-xs font-normal italic text-muted-foreground",
+      label: "text-sm font-medium text-body",
+      code: "flex items-center font-mono text-sm rounded bg-muted px-1.5 py-0.5 text-foreground",
+      blockquote:
+        "border-l-2 border-border-strong pl-4 text-base italic text-body-muted",
+    },
+  },
+  defaultVariants: { variant: "body" },
+});
+
+export type TypographyVariant = NonNullable<
+  VariantProps<typeof typographyVariants>["variant"]
+>;
 
 /** DOM element rendered per variant (override with `as` when you need a
  *  different tag, e.g. an <h2> that looks like the h1 style). */
@@ -36,25 +49,6 @@ const element: Record<TypographyVariant, ElementType> = {
   label: "span",
   code: "code",
   blockquote: "blockquote",
-};
-
-const styles: Record<TypographyVariant, string> = {
-  display: "text-5xl font-extrabold tracking-tight text-foreground",
-  h1: "text-4xl font-bold tracking-tight text-foreground",
-  h2: "text-3xl font-semibold tracking-tight text-foreground",
-  h3: "text-2xl font-semibold text-foreground",
-  h4: "text-lg font-semibold text-foreground",
-  lead: "text-lg font-normal text-body-muted",
-  body: "text-base font-normal text-body",
-  "body-md": "text-base font-medium text-body-muted",
-  "body-sm": "text-sm font-normal text-body-muted",
-  small: "text-xs font-normal text-muted-foreground",
-  overline: "text-xs font-semibold uppercase tracking-widest text-muted-foreground",
-  caption: "text-xs font-normal italic text-muted-foreground",
-  label: "text-sm font-medium text-body",
-  code: "flex items-center font-mono text-sm rounded bg-muted px-1.5 py-0.5 text-foreground",
-  blockquote:
-    "border-l-2 border-border-strong pl-4 text-base italic text-body-muted",
 };
 
 type TypographyProps = ComponentProps<"p"> & {
@@ -83,6 +77,9 @@ export const Typography = ({
 }: TypographyProps) => {
   const Component = as ?? element[variant];
   return (
-    <Component className={cn(styles[variant], className)} {...props} />
+    <Component
+      className={cn(typographyVariants({ variant }), className)}
+      {...props}
+    />
   );
 };

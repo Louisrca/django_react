@@ -1,34 +1,38 @@
+import { cva, type VariantProps } from "class-variance-authority";
 import type { LucideIcon } from "lucide-react";
 import type { ComponentProps } from "react";
 import { cn } from "../../../utils/cn";
 
-type Variant = "neutral" | "info" | "success" | "warning" | "error";
-
-type BadgeProps = ComponentProps<"span"> & {
-  variant?: Variant;
-  icon?: LucideIcon;
-};
-
-const base =
+const badgeVariants = cva(
   "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 " +
-  "text-sm font-medium";
+    "text-sm font-medium",
+  {
+    variants: {
+      variant: {
+        neutral: "border-border bg-accent text-body",
+        info: "border-info-border bg-info-surface text-info",
+        success: "border-success-border bg-success-surface text-success",
+        warning: "border-warning-border bg-warning-surface text-warning",
+        error: "border-error-border bg-error-surface text-error",
+      },
+    },
+    defaultVariants: { variant: "neutral" },
+  },
+);
 
-const variants: Record<Variant, string> = {
-  neutral: "border-border bg-accent text-body",
-  info: "border-info-border bg-info-surface text-info",
-  success: "border-success-border bg-success-surface text-success",
-  warning: "border-warning-border bg-warning-surface text-warning",
-  error: "border-error-border bg-error-surface text-error",
-};
+type BadgeProps = ComponentProps<"span"> &
+  VariantProps<typeof badgeVariants> & {
+    icon?: LucideIcon;
+  };
 
 export const Badge = ({
-  variant = "neutral",
+  variant,
   icon: Icon,
   className,
   children,
   ...props
 }: BadgeProps) => (
-  <span className={cn(base, variants[variant], className)} {...props}>
+  <span className={cn(badgeVariants({ variant }), className)} {...props}>
     {Icon && <Icon className="size-3.5" />}
     <span className={Icon ? "sr-only sm:not-sr-only" : undefined}>
       {children}
