@@ -23,19 +23,30 @@ const badgeVariants = cva(
 type BadgeProps = ComponentProps<"span"> &
   VariantProps<typeof badgeVariants> & {
     icon?: LucideIcon;
+    showLabel?: boolean | "sm";
   };
 
 export const Badge = ({
   variant,
   icon: Icon,
+  showLabel,
   className,
   children,
   ...props
-}: BadgeProps) => (
-  <span className={cn(badgeVariants({ variant }), className)} {...props}>
-    {Icon && <Icon className="size-3.5" />}
-    <span className={Icon ? "sr-only sm:not-sr-only" : undefined}>
-      {children}
+}: BadgeProps) => {
+  const visibility = showLabel ?? (Icon ? "sm" : true);
+
+  const labelClassName =
+    visibility === true
+      ? undefined
+      : visibility === false
+        ? "sr-only"
+        : "sr-only sm:not-sr-only";
+
+  return (
+    <span className={cn(badgeVariants({ variant }), className)} {...props}>
+      {Icon && <Icon className="size-3.5" />}
+      <span className={labelClassName}>{children}</span>
     </span>
-  </span>
-);
+  );
+};

@@ -15,7 +15,7 @@ export const Admin = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-4 mb-18">
+    <div className="flex flex-col gap-4">
       <Typography variant="h2">Tous les clients</Typography>
 
       {isError && (
@@ -30,21 +30,23 @@ export const Admin = () => {
             <li key={client.id}>
               <Card
                 onClick={() => navigate(`/admin/clients/${client.id}`)}
-                className="flex cursor-pointer flex-row justify-between hover:bg-accent"
+                className="flex cursor-pointer flex-row items-center justify-between gap-3 hover:bg-accent"
               >
-                <div className="flex flex-row gap-4">
+                <div className="flex min-w-0 flex-row items-center gap-2 sm:gap-4">
                   <Typography
                     variant="code"
-                    className="flex flex-row items-center gap-1"
+                    className="flex shrink-0 flex-row items-center gap-1"
                   >
-                    <Hash className="size-4 text-muted-foreground" />
+                    <Hash className="size-4 shrink-0 text-muted-foreground" />
                     {client.id}
                   </Typography>
-                  <Typography variant="body">{client.full_name}</Typography>
+                  <Typography variant="body" className="truncate">
+                    {client.full_name}
+                  </Typography>
                 </div>
-                <div className="flex flex-row gap-4">
+                <div className="flex shrink-0 flex-row items-center gap-2 sm:gap-4">
                   <ClientBadgeRow data={client} />
-                  <ChevronRight className="text-faint" />
+                  <ChevronRight className="shrink-0 text-faint" />
                 </div>
               </Card>
             </li>

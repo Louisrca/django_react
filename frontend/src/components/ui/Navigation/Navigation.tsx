@@ -7,14 +7,16 @@ export const Navigation = () => {
 
   return (
     <nav
-      className="flex flex-row justify-between gap-2 border-b border-border p-6 bg-background"
+      className="flex flex-row flex-wrap items-center justify-between gap-x-2 gap-y-1 border-b border-border bg-background p-4"
       aria-label="Navigation de page"
     >
-      <div>
-        <Typography variant="display">DiagConso</Typography>
-      </div>
+      <button type="button" onClick={() => navigate("/")}>
+        <Typography variant="h4" as="span">
+          DiagConso
+        </Typography>
+      </button>
 
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-2 sm:gap-4">
         <Button
           variant="navigation"
           onClick={() => {

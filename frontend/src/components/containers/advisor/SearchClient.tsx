@@ -28,7 +28,7 @@ export const SearchClient = ({ onSelect }: SearchClientProps) => {
   };
 
   return (
-    <div className="mt-4">
+    <div>
       <Input
         label="Rechercher un client"
         value={query}

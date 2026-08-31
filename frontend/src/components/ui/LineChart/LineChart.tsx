@@ -31,11 +31,16 @@ const LineChart = ({ data }: LineChartProps) => {
     const chart = new Chart(canvasRef.current, {
       type: "line",
       data: data,
+      options: { responsive: true, maintainAspectRatio: false },
     });
     return () => chart.destroy();
   }, [data]);
 
-  return <canvas ref={canvasRef} />;
+  return (
+    <div className="relative h-56 w-full sm:h-72">
+      <canvas ref={canvasRef} />
+    </div>
+  );
 };
 
 export default LineChart;

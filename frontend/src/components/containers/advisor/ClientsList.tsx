@@ -12,11 +12,11 @@ export const ClientsList = ({ data, onSelect }: ClientsListProps) => (
       <li key={client.id}>
         <Button
           onClick={() => onSelect(client.id)}
-          className="w-full justify-start"
+          className="w-full min-w-0 justify-start"
           variant="neutral"
           aria-label={client.full_name}
         >
-          {client.full_name}
+          <span className="truncate">{client.full_name}</span>
         </Button>
       </li>
     ))}

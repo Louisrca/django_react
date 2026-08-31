@@ -8,8 +8,12 @@ export const ClientDetailsPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <Button variant="secondary" onClick={() => navigate(-1)}>
+    <div className="flex flex-col gap-4">
+      <Button
+        variant="secondary"
+        className="self-start"
+        onClick={() => navigate(-1)}
+      >
         <ArrowLeft /> <span>Retour</span>
       </Button>
       <ClientDetails clientId={Number(id)} />

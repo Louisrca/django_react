@@ -1,6 +1,26 @@
 @import "tailwindcss";
 
 /*
+ * App-shell scroll model: the layout (`MainContainer`) is a full-height
+ * flex column whose <main> is the only scroll region. The document itself
+ * never scrolls, which kills iOS Safari's rubber-band overscroll (the
+ * "extra white block" when you drag past the end of a list).
+ */
+@layer base {
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+    overscroll-behavior: none;
+    background-color: var(--color-background);
+  }
+}
+
+/*
  * Semantic color tokens.
  *
  * Components reference roles (`text-foreground`, `bg-muted`, `border-input`…),

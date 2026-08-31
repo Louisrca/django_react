@@ -1,19 +1,19 @@
 export const ClientDetailsSkeleton = () => {
   return (
-    <div className="flex flex-col w-152 h-84.75 border border-border rounded-md p-2.5  gap-2.5">
+    <div className="flex w-full flex-col gap-2.5 rounded-md border border-border p-2.5">
       <div className="flex flex-row justify-between gap-2.5">
         <div className="flex flex-row gap-2">
-          <div className="h-6 w-20 bg-muted rounded-md animate-pulse"></div>
-          <div className="h-6 w-34 bg-muted rounded-md animate-pulse"></div>
+          <div className="h-6 w-20 animate-pulse rounded-md bg-muted"></div>
+          <div className="h-6 w-28 animate-pulse rounded-md bg-muted sm:w-34"></div>
         </div>
-        <div className="h-8 w-18 bg-muted rounded-md animate-pulse"></div>
+        <div className="h-8 w-18 animate-pulse rounded-md bg-muted"></div>
       </div>
 
-      <div className="h-full w-full bg-muted rounded-xl animate-pulse"></div>
+      <div className="h-56 w-full animate-pulse rounded-xl bg-muted sm:h-72"></div>
 
-      <div className="flex flex-row justify-between">
-        <div className="h-6 w-34 bg-muted rounded-full px-2 py-0.5  animate-pulse"></div>
-        <div className="h-6 w-34 bg-muted rounded-full px-2 py-0.5  animate-pulse"></div>
+      <div className="flex flex-row flex-wrap justify-between gap-2">
+        <div className="h-6 w-28 animate-pulse rounded-full bg-muted sm:w-34"></div>
+        <div className="h-6 w-28 animate-pulse rounded-full bg-muted sm:w-34"></div>
       </div>
     </div>
   );
