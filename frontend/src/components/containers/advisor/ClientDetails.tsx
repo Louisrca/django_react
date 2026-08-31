@@ -14,6 +14,7 @@ import { ClientDetailsSkeleton } from "./ClientDetailsSkeleton/ClientDetailsSkel
 import { Badge } from "../../ui/Badge/Badge";
 import { Select } from "../../ui/Select/Select";
 import { formatDate } from "../../../utils/date";
+import { Typography } from "../../ui/Typography/Typography";
 
 type ClientDetailsProps = {
   clientId: number;
@@ -77,20 +78,27 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
   }, [data]);
 
   return (
-    <>
-      <h1>Consommation client</h1>
+    <div className="flex flex-col gap-4">
+      <Typography variant="h2" className="mt-4">
+        Consommation client
+      </Typography>
       {data && chartData && (
         <Suspense fallback={<ClientDetailsSkeleton />}>
           <div className="flex flex-col border border-slate-200 rounded-md p-2.5 gap-2.5">
             <div className="flex flex-row flex-wrap items-center justify-between gap-x-4 gap-y-2">
               <div className="flex flex-row gap-2">
                 <div className="flex flex-row items-center gap-1.5 text-slate-500">
-                  <Hash className="size-4 text-slate-400" />
-                  <code>{data.id}</code>
+                  <Typography
+                    variant="code"
+                    className="flex flex-row items-center gap-1"
+                  >
+                    <Hash className="size-4 text-slate-500" />
+                    {data.id}
+                  </Typography>
                 </div>
                 <div className="flex flex-row items-center gap-1.5">
                   <User className="size-4 text-slate-400" />
-                  <h2 className="font-medium">{data.full_name}</h2>
+                  <Typography variant="body-md">{data.full_name}</Typography>
                 </div>
               </div>
 
@@ -110,7 +118,9 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
             </div>
             <div className="flex flex-row justify-between">
               <div className="flex flex-row items-center gap-1.5">
-                <span className="text-slate-500">Chauffage</span>
+                <Typography variant="body" className="!text-slate-500">
+                  Chauffage
+                </Typography>
                 {data.has_elec_heating ? (
                   <Badge variant="info" icon={Zap}>
                     Électrique
@@ -147,6 +157,6 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
           Erreur lors de la récupération des informations client.
         </StatusText>
       )}
-    </>
+    </div>
   );
 };

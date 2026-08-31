@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "../Button/Button";
+import { Typography } from "../Typography/Typography";
 
 type PaginationProps = {
   page: number;
@@ -29,9 +30,9 @@ export const Pagination = ({
       Précédent
     </Button>
 
-    <span aria-live="polite" className="text-sm text-slate-500">
+    <Typography variant="body-sm" aria-live="polite">
       Page {page} / {pageCount}
-    </span>
+    </Typography>
 
     <Button
       variant="secondary"

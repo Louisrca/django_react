@@ -1,13 +1,17 @@
 import { useNavigate } from "react-router";
 import { Button } from "../Button/Button";
+import { Typography } from "../Typography/Typography";
 
 export const Navigation = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="flex flex-row justify-between gap-2 border-b border-slate-200 p-6 mb-8">
+    <nav
+      className="flex flex-row justify-between gap-2 border-b border-slate-200 p-6 bg-white"
+      aria-label="Navigation de page"
+    >
       <div>
-        <h1>DiagConso</h1>
+        <Typography variant="display">DiagConso</Typography>
       </div>
 
       <div className="flex flex-row gap-4">
