@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo } from "react";
+import { lazy, Suspense, useMemo, useState } from "react";
 import { useClient } from "../../../api/clients";
 import { ClientDetailsSkeleton } from "./ClientDetailsSkeleton/ClientDetailsSkeleton";
 import { StatusText } from "../../ui/StatusText/StatusText";
@@ -11,8 +11,9 @@ type ClientDetailsProps = {
 const LineChart = lazy(() => import("../../ui/LineChart/LineChart"));
 
 export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
-  const { data, isLoading, isError } = useClient(clientId);
-  console.log("🚀 ~ ClientDetails ~ data:", data);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>();
+
+  const { data, isLoading, isError } = useClient(clientId, selectedYear);
 
   const chartData = useMemo(
     () =>
@@ -62,6 +63,18 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
                     Non électrique
                   </span>
                 )}
+              </div>
+              <div>
+                <select
+                  value={selectedYear}
+                  onChange={(e) => setSelectedYear(Number(e.target.value))}
+                >
+                  {data.available_years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
             <div>

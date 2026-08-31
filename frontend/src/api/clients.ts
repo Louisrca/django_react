@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { http } from "../utils/http";
 import type { ClientDetails, SearchClientsResponse } from "../types/clients";
 
@@ -7,7 +7,10 @@ const searchClients = (query: string, page = 1) =>
     `/search-clients?query=${encodeURIComponent(query)}&page=${page}`,
   );
 
-const getClient = (id: number) => http<ClientDetails>(`/client/${id}`);
+const getClient = (id: number, year?: number) => {
+  const queryString = year !== undefined ? `?year=${year}` : "";
+  return http<ClientDetails>(`/client/${id}${queryString}`);
+};
 
 export function useSearchClients(query: string, page = 1) {
   return useQuery({
@@ -17,9 +20,11 @@ export function useSearchClients(query: string, page = 1) {
   });
 }
 
-export function useClient(id: number) {
+export function useClient(id: number, year?: number) {
   return useQuery({
-    queryKey: ["clients", id],
-    queryFn: () => getClient(id),
+    queryKey: ["clients", "detail", id, year],
+    queryFn: () => getClient(id, year),
+    enabled: Number.isFinite(id),
+    placeholderData: keepPreviousData,
   });
 }
