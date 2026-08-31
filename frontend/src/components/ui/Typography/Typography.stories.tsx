@@ -45,9 +45,9 @@ export const Scale: Story = {
       {VARIANTS.map((variant) => (
         <div
           key={variant}
-          className="flex flex-col gap-1 border-b border-slate-100 pb-4"
+          className="flex flex-col gap-1 border-b border-border-subtle pb-4"
         >
-          <div className="flex items-center gap-2 font-mono text-xs text-slate-400">
+          <div className="flex items-center gap-2 font-mono text-xs text-faint">
             <span className="w-20">{variant}</span>
             <span>{SPECS[variant]}</span>
           </div>

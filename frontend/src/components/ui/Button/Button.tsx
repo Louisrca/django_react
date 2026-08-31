@@ -15,16 +15,16 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const base =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md " +
   "font-medium transition-colors " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring " +
   "focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 " +
   "cursor-pointer";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-slate-900 text-white hover:bg-slate-700",
+  primary: "bg-primary text-primary-foreground hover:bg-primary-hover",
   secondary:
-    "border border-slate-300 bg-white text-slate-900 hover:bg-slate-50",
-  neutral: "bg-white text-slate-900 hover:bg-slate-50",
-  navigation: "bg-white text-slate-900 hover:underline",
+    "border border-input bg-background text-foreground hover:bg-accent",
+  neutral: "bg-background text-foreground hover:bg-accent",
+  navigation: "bg-background text-foreground hover:underline",
 };
 
 const sizes: Record<Size, string> = {

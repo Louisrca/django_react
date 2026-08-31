@@ -14,7 +14,7 @@ export default function App() {
         <Routes>
           <Route element={<MainContainer />}>
             <Route path="/" element={<Advisor />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/clients" element={<Admin />} />
             <Route path="/admin/clients/:id" element={<ClientDetailsPage />} />
           </Route>
         </Routes>

@@ -3,7 +3,7 @@ import { Navigation } from "../ui/Navigation/Navigation";
 
 export const MainContainer = () => (
   <div className="flex h-dvh flex-col">
-    <div className="shrink-0 bg-white">
+    <div className="shrink-0 bg-background">
       <Navigation />
     </div>
     <main className="flex-1 overflow-y-auto">

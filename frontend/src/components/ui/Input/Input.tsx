@@ -8,9 +8,9 @@ type InputProps = ComponentProps<"input"> & {
 };
 
 const inputBase =
-  "block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm " +
-  "text-slate-900 placeholder:text-slate-400 transition-colors " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 " +
+  "block w-full rounded-md border border-input bg-background px-3 py-2 text-sm " +
+  "text-foreground placeholder:text-faint transition-colors " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring " +
   "focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
 
 export const Input = ({
@@ -28,11 +28,11 @@ export const Input = ({
     <div className="flex flex-col gap-1">
       <Label.Root
         htmlFor={inputId}
-        className="text-sm font-medium text-slate-700"
+        className="text-sm font-medium text-body"
       >
         {label}
         {required && (
-          <span className="text-red-600" aria-hidden="true">
+          <span className="text-destructive" aria-hidden="true">
             {" *"}
           </span>
         )}

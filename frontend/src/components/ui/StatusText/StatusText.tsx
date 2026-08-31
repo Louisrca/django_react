@@ -6,8 +6,8 @@ type StatusTextProps = ComponentProps<"p"> & {
 };
 
 const tones = {
-  muted: "text-slate-500",
-  error: "text-red-600",
+  muted: "text-muted-foreground",
+  error: "text-destructive",
 } as const;
 
 export const StatusText = ({

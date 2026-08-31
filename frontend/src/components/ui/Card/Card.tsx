@@ -5,7 +5,7 @@ type CardProps = ComponentProps<"div"> & {
   className?: string;
 };
 
-const base = "rounded-md border border-slate-100 p-4";
+const base = "rounded-md border border-border-subtle p-4";
 
 export const Card = ({ className, ...props }: CardProps) => {
   return <div className={cn(base, className)} {...props} />;

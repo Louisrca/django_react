@@ -22,6 +22,11 @@ type ClientDetailsProps = {
 
 const LineChart = lazy(() => import("../../ui/LineChart/LineChart"));
 
+/** Read a semantic color token (see `index.css` `@theme`) for use on the
+ *  Chart.js canvas, which needs a literal color string rather than a class. */
+const colorToken = (name: string) =>
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
 export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
   const [selectedYear, setSelectedYear] = useState<number | undefined>();
 
@@ -68,8 +73,8 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
                 pointStyle: "circRot" as const,
                 pointRadius: 7,
                 pointHoverRadius: 9,
-                pointBackgroundColor: "oklch(88.5% 0.062 18.334)",
-                pointBorderColor: "oklch(57.7% 0.245 27.325)",
+                pointBackgroundColor: colorToken("--color-error-border"),
+                pointBorderColor: colorToken("--color-destructive"),
               },
             ]
           : []),
@@ -84,20 +89,20 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
       </Typography>
       {data && chartData && (
         <Suspense fallback={<ClientDetailsSkeleton />}>
-          <div className="flex flex-col border border-slate-200 rounded-md p-2.5 gap-2.5">
+          <div className="flex flex-col border border-border rounded-md p-2.5 gap-2.5">
             <div className="flex flex-row flex-wrap items-center justify-between gap-x-4 gap-y-2">
               <div className="flex flex-row gap-2">
-                <div className="flex flex-row items-center gap-1.5 text-slate-500">
+                <div className="flex flex-row items-center gap-1.5 text-muted-foreground">
                   <Typography
                     variant="code"
                     className="flex flex-row items-center gap-1"
                   >
-                    <Hash className="size-4 text-slate-500" />
+                    <Hash className="size-4 text-muted-foreground" />
                     {data.id}
                   </Typography>
                 </div>
                 <div className="flex flex-row items-center gap-1.5">
-                  <User className="size-4 text-slate-400" />
+                  <User className="size-4 text-faint" />
                   <Typography variant="body-md">{data.full_name}</Typography>
                 </div>
               </div>
@@ -118,7 +123,7 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
             </div>
             <div className="flex flex-row justify-between">
               <div className="flex flex-row items-center gap-1.5">
-                <Typography variant="body" className="text-slate-500">
+                <Typography variant="body" className="text-muted-foreground">
                   Chauffage
                 </Typography>
                 {data.has_elec_heating ? (

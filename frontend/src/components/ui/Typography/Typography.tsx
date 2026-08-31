@@ -39,22 +39,22 @@ const element: Record<TypographyVariant, ElementType> = {
 };
 
 const styles: Record<TypographyVariant, string> = {
-  display: "text-5xl font-extrabold tracking-tight text-slate-900",
-  h1: "text-4xl font-bold tracking-tight text-slate-900",
-  h2: "text-3xl font-semibold tracking-tight text-slate-900",
-  h3: "text-2xl font-semibold text-slate-900",
-  h4: "text-lg font-semibold text-slate-900",
-  lead: "text-lg font-normal text-slate-600",
-  body: "text-base font-normal text-slate-700",
-  "body-md": "text-base font-medium text-slate-600",
-  "body-sm": "text-sm font-normal text-slate-600",
-  small: "text-xs font-normal text-slate-500",
-  overline: "text-xs font-semibold uppercase tracking-widest text-slate-500",
-  caption: "text-xs font-normal italic text-slate-500",
-  label: "text-sm font-medium text-slate-700",
-  code: "flex items-center font-mono text-sm rounded bg-slate-100 px-1.5 py-0.5 text-slate-800 ",
+  display: "text-5xl font-extrabold tracking-tight text-foreground",
+  h1: "text-4xl font-bold tracking-tight text-foreground",
+  h2: "text-3xl font-semibold tracking-tight text-foreground",
+  h3: "text-2xl font-semibold text-foreground",
+  h4: "text-lg font-semibold text-foreground",
+  lead: "text-lg font-normal text-body-muted",
+  body: "text-base font-normal text-body",
+  "body-md": "text-base font-medium text-body-muted",
+  "body-sm": "text-sm font-normal text-body-muted",
+  small: "text-xs font-normal text-muted-foreground",
+  overline: "text-xs font-semibold uppercase tracking-widest text-muted-foreground",
+  caption: "text-xs font-normal italic text-muted-foreground",
+  label: "text-sm font-medium text-body",
+  code: "flex items-center font-mono text-sm rounded bg-muted px-1.5 py-0.5 text-foreground",
   blockquote:
-    "border-l-2 border-slate-300 pl-4 text-base italic text-slate-600",
+    "border-l-2 border-border-strong pl-4 text-base italic text-body-muted",
 };
 
 type TypographyProps = ComponentProps<"p"> & {

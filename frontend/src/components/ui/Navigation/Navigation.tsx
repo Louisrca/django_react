@@ -7,7 +7,7 @@ export const Navigation = () => {
 
   return (
     <nav
-      className="flex flex-row justify-between gap-2 border-b border-slate-200 p-6 bg-white"
+      className="flex flex-row justify-between gap-2 border-b border-border p-6 bg-background"
       aria-label="Navigation de page"
     >
       <div>
@@ -18,7 +18,7 @@ export const Navigation = () => {
         <Button
           variant="navigation"
           onClick={() => {
-            navigate("/admin");
+            navigate("/admin/clients");
           }}
         >
           Admin

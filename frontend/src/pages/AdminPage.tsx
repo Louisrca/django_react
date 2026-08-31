@@ -11,7 +11,6 @@ import { Typography } from "../components/ui/Typography/Typography";
 export const Admin = () => {
   const [page, setPage] = useState(1);
   const { data, isPending, isError } = useClients(page);
-  console.log("🚀 ~ Admin ~ data:", data);
 
   const navigate = useNavigate();
 
@@ -31,21 +30,21 @@ export const Admin = () => {
             <li key={client.id}>
               <Card
                 onClick={() => navigate(`/admin/clients/${client.id}`)}
-                className="flex cursor-pointer flex-row justify-between hover:bg-slate-50"
+                className="flex cursor-pointer flex-row justify-between hover:bg-accent"
               >
                 <div className="flex flex-row gap-4">
                   <Typography
                     variant="code"
                     className="flex flex-row items-center gap-1"
                   >
-                    <Hash className="size-4 text-slate-500" />
+                    <Hash className="size-4 text-muted-foreground" />
                     {client.id}
                   </Typography>
                   <Typography variant="body">{client.full_name}</Typography>
                 </div>
                 <div className="flex flex-row gap-4">
                   <ClientBadgeRow data={client} />
-                  <ChevronRight color={"#B9BBC6"} />
+                  <ChevronRight className="text-faint" />
                 </div>
               </Card>
             </li>

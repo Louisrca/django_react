@@ -7,7 +7,7 @@ type ClientsListProps = {
 };
 
 export const ClientsList = ({ data, onSelect }: ClientsListProps) => (
-  <ul className="mt-2 divide-y divide-slate-200 rounded-md border border-slate-200">
+  <ul className="mt-2 divide-y divide-border rounded-md border border-border">
     {data.clients.map((client) => (
       <li key={client.id}>
         <Button
