@@ -3,7 +3,7 @@ import { Typography } from "@/components/ui/Typography/Typography";
 import type { Client } from "@/types/clients";
 import { ChevronRight, Hash } from "lucide-react";
 import { Link } from "react-router";
-import { ClientBadgeRow } from "./ClientBadgeRow";
+import { ClientBadgeRow } from "./ClientBadgeRow/ClientBadgeRow";
 
 type ClientsCardListProps = {
   clients: Client[];
