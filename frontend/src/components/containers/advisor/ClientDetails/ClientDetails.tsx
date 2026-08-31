@@ -10,7 +10,7 @@ import {
 import { lazy, Suspense, useMemo, useState } from "react";
 import { useClient } from "@/api/clients";
 import { StatusText } from "@/components/ui/StatusText/StatusText";
-import { ClientDetailsSkeleton } from "./ClientDetailsSkeleton/ClientDetailsSkeleton";
+import { ClientDetailsSkeleton } from "../ClientDetailsSkeleton/ClientDetailsSkeleton";
 import { Badge } from "@/components/ui/Badge/Badge";
 import { Select } from "@/components/ui/Select/Select";
 import { formatDate } from "@/utils/date";

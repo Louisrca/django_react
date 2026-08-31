@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ClientDetails } from "@/components/containers/advisor/ClientDetails";
+import { ClientDetails } from "@/components/containers/advisor/ClientDetails/ClientDetails";
 import { SearchClient } from "@/components/containers/advisor/SearchClient";
 
 export const Advisor = () => {
