@@ -1,5 +1,6 @@
 import { Slot } from "radix-ui";
 import { type ButtonHTMLAttributes, type ElementType, type Ref } from "react";
+import { cn } from "../../../utils/cn";
 
 type Variant = "primary" | "secondary" | "neutral" | "navigation";
 type Size = "sm" | "md" | "lg";
@@ -46,7 +47,7 @@ export const Button = ({
   return (
     <Comp
       ref={ref}
-      className={`${base} ${variants[variant]} ${sizes[size]} ${className ?? ""}`}
+      className={cn(base, variants[variant], sizes[size], className)}
       {...(asChild ? undefined : { type: type ?? "button" })}
       {...props}
     />

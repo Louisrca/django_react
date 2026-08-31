@@ -118,7 +118,7 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
             </div>
             <div className="flex flex-row justify-between">
               <div className="flex flex-row items-center gap-1.5">
-                <Typography variant="body" className="!text-slate-500">
+                <Typography variant="body" className="text-slate-500">
                   Chauffage
                 </Typography>
                 {data.has_elec_heating ? (

@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import type { ComponentProps } from "react";
+import { cn } from "../../../utils/cn";
 
 type Variant = "neutral" | "info" | "success" | "warning" | "error";
 
@@ -27,10 +28,7 @@ export const Badge = ({
   children,
   ...props
 }: BadgeProps) => (
-  <span
-    className={`${base} ${variants[variant]} ${className ?? ""}`}
-    {...props}
-  >
+  <span className={cn(base, variants[variant], className)} {...props}>
     {Icon && <Icon className="size-3.5" />}
     <span className={Icon ? "sr-only sm:not-sr-only" : undefined}>
       {children}

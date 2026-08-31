@@ -1,4 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
+import { cn } from "../../../utils/cn";
 
 export type SelectOption = {
   label: ReactNode;
@@ -21,7 +22,7 @@ export const Select = ({
   children,
   ...props
 }: SelectProps) => (
-  <select className={`${base} ${className ?? ""}`} {...props}>
+  <select className={cn(base, className)} {...props}>
     {options
       ? options.map((option) => (
           <option key={option.value} value={option.value}>

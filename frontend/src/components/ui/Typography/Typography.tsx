@@ -1,4 +1,5 @@
 import type { ComponentProps, ElementType } from "react";
+import { cn } from "../../../utils/cn";
 
 export type TypographyVariant =
   | "display"
@@ -82,6 +83,6 @@ export const Typography = ({
 }: TypographyProps) => {
   const Component = as ?? element[variant];
   return (
-    <Component className={`${styles[variant]} ${className ?? ""}`} {...props} />
+    <Component className={cn(styles[variant], className)} {...props} />
   );
 };

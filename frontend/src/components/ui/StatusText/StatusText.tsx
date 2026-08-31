@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+import { cn } from "../../../utils/cn";
 
 type StatusTextProps = ComponentProps<"p"> & {
   tone?: "muted" | "error";
@@ -14,5 +15,5 @@ export const StatusText = ({
   className,
   ...props
 }: StatusTextProps) => (
-  <p className={`mt-2 text-sm ${tones[tone]} ${className ?? ""}`} {...props} />
+  <p className={cn("mt-2 text-sm", tones[tone], className)} {...props} />
 );
