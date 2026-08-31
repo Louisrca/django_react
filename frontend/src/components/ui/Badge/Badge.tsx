@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import type { LucideIcon } from "lucide-react";
 import type { ComponentProps } from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 
 const badgeVariants = cva(
   "inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 " +

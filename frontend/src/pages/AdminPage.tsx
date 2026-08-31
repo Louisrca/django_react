@@ -1,12 +1,12 @@
 import { ChevronRight, Hash } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { useClients } from "../api/clients";
-import { ClientBadgeRow } from "../components/containers/admin/ClientBadgeRow";
-import { Card } from "../components/ui/Card/Card";
-import { Pagination } from "../components/ui/Pagination/Pagination";
-import { StatusText } from "../components/ui/StatusText/StatusText";
-import { Typography } from "../components/ui/Typography/Typography";
+import { useClients } from "@/api/clients";
+import { ClientBadgeRow } from "@/components/containers/admin/ClientBadgeRow";
+import { Card } from "@/components/ui/Card/Card";
+import { Pagination } from "@/components/ui/Pagination/Pagination";
+import { StatusText } from "@/components/ui/StatusText/StatusText";
+import { Typography } from "@/components/ui/Typography/Typography";
 
 export const Admin = () => {
   const [page, setPage] = useState(1);

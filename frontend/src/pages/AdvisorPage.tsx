@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ClientDetails } from "../components/containers/advisor/ClientDetails";
-import { SearchClient } from "../components/containers/advisor/SearchClient";
+import { ClientDetails } from "@/components/containers/advisor/ClientDetails";
+import { SearchClient } from "@/components/containers/advisor/SearchClient";
 
 export const Advisor = () => {
   // the first object starts with id 1

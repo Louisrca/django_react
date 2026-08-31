@@ -1,6 +1,6 @@
 import { Label } from "radix-ui";
 import { useId, type ComponentProps, type Ref } from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 
 type InputProps = ComponentProps<"input"> & {
   label: string;

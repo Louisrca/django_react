@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 
 type CardProps = ComponentProps<"div"> & {
   className?: string;

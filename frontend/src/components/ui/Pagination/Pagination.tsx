@@ -1,6 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "../Button/Button";
-import { Typography } from "../Typography/Typography";
+import { Button } from "@/components/ui/Button/Button";
+import { Typography } from "@/components/ui/Typography/Typography";
 
 type PaginationProps = {
   page: number;

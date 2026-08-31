@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useSearchClients } from "../../../api/clients";
-import { Input } from "../../ui/Input/Input";
-import { StatusText } from "../../ui/StatusText/StatusText";
+import { useSearchClients } from "@/api/clients";
+import { Input } from "@/components/ui/Input/Input";
+import { StatusText } from "@/components/ui/StatusText/StatusText";
 import { ClientsList } from "./ClientsList";
 
 type SearchClientProps = {

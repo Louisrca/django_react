@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
-import { Button } from "../Button/Button";
-import { Typography } from "../Typography/Typography";
+import { Button } from "@/components/ui/Button/Button";
+import { Typography } from "@/components/ui/Typography/Typography";
 
 export const Navigation = () => {
   const navigate = useNavigate();

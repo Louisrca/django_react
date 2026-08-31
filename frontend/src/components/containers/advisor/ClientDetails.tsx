@@ -8,24 +8,20 @@ import {
   Zap,
 } from "lucide-react";
 import { lazy, Suspense, useMemo, useState } from "react";
-import { useClient } from "../../../api/clients";
-import { StatusText } from "../../ui/StatusText/StatusText";
+import { useClient } from "@/api/clients";
+import { StatusText } from "@/components/ui/StatusText/StatusText";
 import { ClientDetailsSkeleton } from "./ClientDetailsSkeleton/ClientDetailsSkeleton";
-import { Badge } from "../../ui/Badge/Badge";
-import { Select } from "../../ui/Select/Select";
-import { formatDate } from "../../../utils/date";
-import { Typography } from "../../ui/Typography/Typography";
+import { Badge } from "@/components/ui/Badge/Badge";
+import { Select } from "@/components/ui/Select/Select";
+import { formatDate } from "@/utils/date";
+import { Typography } from "@/components/ui/Typography/Typography";
+import { colorToken } from "@/utils/color-token";
 
 type ClientDetailsProps = {
   clientId: number;
 };
 
-const LineChart = lazy(() => import("../../ui/LineChart/LineChart"));
-
-/** Read a semantic color token (see `index.css` `@theme`) for use on the
- *  Chart.js canvas, which needs a literal color string rather than a class. */
-const colorToken = (name: string) =>
-  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+const LineChart = lazy(() => import("@/components/ui/LineChart/LineChart"));
 
 export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
   const [selectedYear, setSelectedYear] = useState<number | undefined>();

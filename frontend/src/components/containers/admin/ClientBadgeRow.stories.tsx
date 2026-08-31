@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ClientBadgeRow } from "../../containers/admin/ClientBadgeRow";
+import { ClientBadgeRow } from "@/components/containers/admin/ClientBadgeRow";
 
 const meta = {
   component: ClientBadgeRow,

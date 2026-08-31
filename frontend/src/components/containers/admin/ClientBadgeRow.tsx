@@ -1,6 +1,6 @@
 import { CheckCircle2, Flame, TriangleAlert, Zap } from "lucide-react";
-import type { Client } from "../../../types/clients";
-import { Badge } from "../../ui/Badge/Badge";
+import type { Client } from "@/types/clients";
+import { Badge } from "@/components/ui/Badge/Badge";
 
 type ClientBadgeRowProps = {
   data: Omit<Client, "id" | "full_name">;

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Navigation } from "../ui/Navigation/Navigation";
+import { Navigation } from "@/components/ui/Navigation/Navigation";
 
 export const MainContainer = () => (
   <div className="flex h-dvh flex-col">

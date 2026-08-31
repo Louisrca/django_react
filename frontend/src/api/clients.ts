@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { http } from "../utils/http";
-import type { ClientDetails, SearchClientsResponse } from "../types/clients";
+import { http } from "@/utils/http";
+import type { ClientDetails, SearchClientsResponse } from "@/types/clients";
 
 const searchClients = (query: string, page = 1) =>
   http<SearchClientsResponse>(

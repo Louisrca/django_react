@@ -1,4 +1,4 @@
-import { ClientBadgeRow } from "../../containers/admin/ClientBadgeRow";
+import { ClientBadgeRow } from "@/components/containers/admin/ClientBadgeRow";
 import { Card } from "./Card";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 

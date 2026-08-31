@@ -1,7 +1,7 @@
 import { Slot } from "radix-ui";
 import { cva, type VariantProps } from "class-variance-authority";
 import { type ButtonHTMLAttributes, type ElementType, type Ref } from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "@/utils/cn";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md " +

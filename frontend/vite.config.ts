@@ -11,6 +11,11 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(dirname, "src"),
+    },
+  },
   server: {
     proxy: {
       "/api": "http://127.0.0.1:8000"
