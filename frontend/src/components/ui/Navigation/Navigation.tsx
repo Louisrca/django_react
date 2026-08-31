@@ -10,9 +10,13 @@ export const Navigation = () => {
       <Link
         to="/"
         aria-label="Accueil"
-        className="shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ml-2"
       >
-        <img src="/hello-watt.svg" alt="Hello Watt" width={168} height={32} />
+        <img
+          src="/hello-watt.svg"
+          alt="Hello Watt"
+          className="h-6 w-auto sm:h-7 lg:h-8"
+        />
       </Link>
 
       <div className="flex flex-row gap-2 sm:gap-4">

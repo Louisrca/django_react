@@ -53,6 +53,10 @@ export const ClientDetails = ({ clientId }: ClientDetailsProps) => {
         {
           label: "kWh consommés",
           data: consumptions.map((consumption) => consumption.kwh_consumed),
+          pointBackgroundColor: colorToken("--color-brand-surface"),
+          pointBorderColor: colorToken("--color-brand"),
+          pointRadius: (ctx) => (ctx.dataIndex === anomalyIndex ? 0 : 3),
+          pointHoverRadius: (ctx) => (ctx.dataIndex === anomalyIndex ? 0 : 5),
         },
         ...(anomalyIndex !== -1 && anomaly_date
           ? [

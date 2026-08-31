@@ -31,7 +31,9 @@
 @theme {
   /* Surfaces */
   --color-background: var(--color-white);
-  --color-muted: var(--color-slate-100); /* subtle fills, code chips, skeletons */
+  --color-muted: var(
+    --color-slate-100
+  ); /* subtle fills, code chips, skeletons */
   --color-accent: var(--color-slate-50); /* row / ghost hover */
 
   /* Text (descending emphasis) */
@@ -53,8 +55,9 @@
   --color-primary-hover: var(--color-slate-700);
   --color-primary-foreground: var(--color-white);
 
-  /* Brand accent — headings, nav hover */
+  /* Brand accent — headings, nav hover, graph */
   --color-brand: #039de0;
+  --color-brand-surface: #c3ecfe;
 
   /* Destructive — standalone error / validation text */
   --color-destructive: var(--color-red-600);
