@@ -26,4 +26,6 @@ export type ClientDetails = Client & {
 /** GET /api/search-clients */
 export type SearchClientsResponse = {
   clients: Client[];
+  page: number;
+  page_count: number;
 };

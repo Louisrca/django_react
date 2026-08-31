@@ -2,7 +2,6 @@ import { StatusText } from "./StatusText";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta = {
-  title: "UI/StatusText",
   component: StatusText,
   args: {
     children: "Recherche...",

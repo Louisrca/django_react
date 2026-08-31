@@ -1,17 +1,22 @@
-import { useState } from "react";
-import { ClientDetails } from "./components/containers/advisor/ClientDetails";
-import { SearchClient } from "./components/containers/advisor/SearchClient";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router";
+import { MainContainer } from "./components/layouts/MainContainer";
+import { Admin } from "./pages/Admin";
+import { Advisor } from "./pages/Advisor";
 
 export default function App() {
-  // the first object starts with id 1
-  const [clientId, setClientId] = useState(1);
+  const queryClient = new QueryClient();
 
   return (
-    <main className="mx-auto max-w-2xl p-8">
-      <div className="flex flex-col gap-6">
-        <SearchClient onSelect={setClientId} />
-        <ClientDetails clientId={clientId} />
-      </div>
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<MainContainer />}>
+            <Route path="/" element={<Advisor />} />
+            <Route path="/admin" element={<Admin />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }

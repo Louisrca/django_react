@@ -2,7 +2,6 @@ import LineChart from "./LineChart";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta = {
-  title: "UI/LineChart",
   component: LineChart,
   args: {
     data: {

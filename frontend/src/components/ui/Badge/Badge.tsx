@@ -32,6 +32,8 @@ export const Badge = ({
     {...props}
   >
     {Icon && <Icon className="size-3.5" />}
-    {children}
+    <span className={Icon ? "sr-only sm:not-sr-only" : undefined}>
+      {children}
+    </span>
   </span>
 );
