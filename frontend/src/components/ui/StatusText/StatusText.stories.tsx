@@ -4,10 +4,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 const meta = {
   title: "UI/StatusText",
   component: StatusText,
-  parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-    layout: "fullscreen",
-  },
   args: {
     children: "Recherche...",
   },

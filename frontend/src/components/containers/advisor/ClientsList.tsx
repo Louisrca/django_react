@@ -1,5 +1,5 @@
-import type { SearchClientsResponse } from "../types/clients";
-import { Button } from "./ui/Button/Button";
+import type { SearchClientsResponse } from "../../../types/clients";
+import { Button } from "../../ui/Button/Button";
 
 type ClientsListProps = {
   data: SearchClientsResponse;
